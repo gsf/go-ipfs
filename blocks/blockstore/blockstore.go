@@ -164,26 +164,31 @@ func (bs *blockstore) AllKeysChan(ctx context.Context) (<-chan key.Key, error) {
 	}
 
 	// this function is here to compartmentalize
-	get := func() (k key.Key, ok bool) {
+	get := func() (key.Key, bool) {
 		select {
 		case <-ctx.Done():
-			return k, false
+			return "", false
 		case e, more := <-res.Next():
 			if !more {
-				return k, false
+				return "", false
 			}
 			if e.Error != nil {
 				log.Debug("blockstore.AllKeysChan got err:", e.Error)
-				return k, false
+				return "", false
 			}
 
 			// need to convert to key.Key using key.KeyFromDsKey.
-			k = key.KeyFromDsKey(ds.NewKey(e.Key))
+			k, err := key.KeyFromDsKey(ds.NewKey(e.Key))
+			if err != nil {
+				log.Warningf("error parsing key from DsKey: ", err)
+				return "", true
+			}
 			log.Debug("blockstore: query got key", k)
 
 			// key must be a multihash. else ignore it.
-			_, err := mh.Cast([]byte(k))
+			_, err = mh.Cast([]byte(k))
 			if err != nil {
+				log.Warningf("key from datastore was not a multihash: ", err)
 				return "", true
 			}
 
