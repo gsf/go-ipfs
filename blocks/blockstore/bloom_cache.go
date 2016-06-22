@@ -51,6 +51,7 @@ func (b *bloomcache) BloomActive() bool {
 }
 
 func (b *bloomcache) Rebuild() {
+	return // #2601 breaks AllKeysChan
 	ctx := context.TODO()
 	evt := log.EventBegin(ctx, "bloomcache.Rebuild")
 	defer evt.Done()
