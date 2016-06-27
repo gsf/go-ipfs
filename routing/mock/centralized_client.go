@@ -8,7 +8,7 @@ import (
 	routing "github.com/ipfs/go-ipfs/routing"
 	dhtpb "github.com/ipfs/go-ipfs/routing/dht/pb"
 	"github.com/ipfs/go-ipfs/thirdparty/testutil"
-	ds "gx/ipfs/QmZ6A6P6AMo8SR3jXAwzTuSU6B9R2Y4eqW2yW9VvfUayDN/go-datastore"
+	ds "gx/ipfs/QmcLrdzNZ2PLEWY9MQaZyNJNSXWaqADJqzPTwWGJRrMqT1/go-datastore"
 
 	logging "gx/ipfs/QmNQynaz7qfriSUJkiEZUrm2Wen1u3Kj9goZzWtrPyu7XR/go-log"
 	pstore "gx/ipfs/QmQdnfvZQuhdT93LNc5bos52wAmdr3G2p6G8teLJMEN32P/go-libp2p-peerstore"

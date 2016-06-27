@@ -4,9 +4,9 @@ import (
 	"testing"
 
 	"github.com/ipfs/go-ipfs/blocks"
-	ds "gx/ipfs/QmZ6A6P6AMo8SR3jXAwzTuSU6B9R2Y4eqW2yW9VvfUayDN/go-datastore"
-	dsq "gx/ipfs/QmZ6A6P6AMo8SR3jXAwzTuSU6B9R2Y4eqW2yW9VvfUayDN/go-datastore/query"
-	syncds "gx/ipfs/QmZ6A6P6AMo8SR3jXAwzTuSU6B9R2Y4eqW2yW9VvfUayDN/go-datastore/sync"
+	ds "gx/ipfs/QmcLrdzNZ2PLEWY9MQaZyNJNSXWaqADJqzPTwWGJRrMqT1/go-datastore"
+	dsq "gx/ipfs/QmcLrdzNZ2PLEWY9MQaZyNJNSXWaqADJqzPTwWGJRrMqT1/go-datastore/query"
+	syncds "gx/ipfs/QmcLrdzNZ2PLEWY9MQaZyNJNSXWaqADJqzPTwWGJRrMqT1/go-datastore/sync"
 )
 
 func TestReturnsErrorWhenSizeNegative(t *testing.T) {

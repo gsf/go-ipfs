@@ -7,12 +7,12 @@ import (
 	repo "github.com/ipfs/go-ipfs/repo"
 	config "github.com/ipfs/go-ipfs/repo/config"
 	"github.com/ipfs/go-ipfs/thirdparty/dir"
-	ds "gx/ipfs/QmZ6A6P6AMo8SR3jXAwzTuSU6B9R2Y4eqW2yW9VvfUayDN/go-datastore"
-	"gx/ipfs/QmZ6A6P6AMo8SR3jXAwzTuSU6B9R2Y4eqW2yW9VvfUayDN/go-datastore/flatfs"
-	levelds "gx/ipfs/QmZ6A6P6AMo8SR3jXAwzTuSU6B9R2Y4eqW2yW9VvfUayDN/go-datastore/leveldb"
-	"gx/ipfs/QmZ6A6P6AMo8SR3jXAwzTuSU6B9R2Y4eqW2yW9VvfUayDN/go-datastore/measure"
-	mount "gx/ipfs/QmZ6A6P6AMo8SR3jXAwzTuSU6B9R2Y4eqW2yW9VvfUayDN/go-datastore/syncmount"
 	ldbopts "gx/ipfs/QmbBhyDKsY4mbY6xsKt3qu9Y7FPvMJ6qbD8AMjYYvPRw1g/goleveldb/leveldb/opt"
+	ds "gx/ipfs/QmcLrdzNZ2PLEWY9MQaZyNJNSXWaqADJqzPTwWGJRrMqT1/go-datastore"
+	"gx/ipfs/QmcLrdzNZ2PLEWY9MQaZyNJNSXWaqADJqzPTwWGJRrMqT1/go-datastore/flatfs"
+	levelds "gx/ipfs/QmcLrdzNZ2PLEWY9MQaZyNJNSXWaqADJqzPTwWGJRrMqT1/go-datastore/leveldb"
+	"gx/ipfs/QmcLrdzNZ2PLEWY9MQaZyNJNSXWaqADJqzPTwWGJRrMqT1/go-datastore/measure"
+	mount "gx/ipfs/QmcLrdzNZ2PLEWY9MQaZyNJNSXWaqADJqzPTwWGJRrMqT1/go-datastore/syncmount"
 )
 
 const (
