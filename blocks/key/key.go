@@ -1,13 +1,13 @@
 package key
 
 import (
-	"encoding/base32"
 	"encoding/json"
 	"fmt"
 
 	b58 "gx/ipfs/QmT8rehPR3F6bmwL6zjUN8XpiDBFFpMP2myPdC6ApsWfJf/go-base58"
 	mh "gx/ipfs/QmYf7ng2hG5XBtJA3tN34DQ2GUN5HNksEw1rLDkmr6vGku/go-multihash"
 	ds "gx/ipfs/QmZ6A6P6AMo8SR3jXAwzTuSU6B9R2Y4eqW2yW9VvfUayDN/go-datastore"
+	base32 "gx/ipfs/Qmb1DA2A9LS2wR4FFweB4uEDomFsdmnw1VLawLE1yQzudj/base32"
 )
 
 // Key is a string representation of multihash for use with maps.
@@ -39,7 +39,7 @@ func B58KeyEncode(k Key) string {
 
 // DsKey returns a Datastore key
 func (k Key) DsKey() ds.Key {
-	return ds.NewKey(base32.StdEncoding.EncodeToString([]byte(k)))
+	return ds.NewKey(base32.RawStdEncoding.EncodeToString([]byte(k)))
 }
 
 // UnmarshalJSON returns a JSON-encoded Key (string)
@@ -70,7 +70,7 @@ func (k *Key) Loggable() map[string]interface{} {
 
 // KeyFromDsKey returns a Datastore key
 func KeyFromDsKey(dsk ds.Key) (Key, error) {
-	dec, err := base32.StdEncoding.DecodeString(dsk.String()[1:])
+	dec, err := base32.RawStdEncoding.DecodeString(dsk.String()[1:])
 	if err != nil {
 		return "", err
 	}
