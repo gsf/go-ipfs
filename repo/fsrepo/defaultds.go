@@ -32,7 +32,7 @@ func openDefaultDatastore(r *FSRepo) (repo.Datastore, error) {
 	}
 
 	syncfs := !r.config.Datastore.NoSync
-	blocksDS, err := flatfs.New(path.Join(r.path, flatfsDirectory), 7, syncfs)
+	blocksDS, err := flatfs.New(path.Join(r.path, flatfsDirectory), 6, syncfs)
 	if err != nil {
 		return nil, fmt.Errorf("unable to open flatfs datastore: %v", err)
 	}
