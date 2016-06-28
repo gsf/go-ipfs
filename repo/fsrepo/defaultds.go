@@ -32,6 +32,8 @@ func openDefaultDatastore(r *FSRepo) (repo.Datastore, error) {
 	}
 
 	syncfs := !r.config.Datastore.NoSync
+	// 6 bytes of prefix gives us 25 bits of freedom, 16 of which are taken by
+	// by the Qm prefix. Leaving us with 9 bits, or 512 way sharding
 	blocksDS, err := flatfs.New(path.Join(r.path, flatfsDirectory), 6, syncfs)
 	if err != nil {
 		return nil, fmt.Errorf("unable to open flatfs datastore: %v", err)
